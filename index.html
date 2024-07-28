@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Editor</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Markdown Editor</h1>
+            <div class="language-switcher">
+                <span class="material-icons" id="language-icon">language</span>
+            </div>
+            <div class="theme-switcher">
+                <span class="material-icons" id="theme-icon">brightness_6</span>
+            </div>
+        </header>
+        <main>
+            <div class="toolbar">
+                <button class="format-button" id="bold-button"><span class="material-icons">format_bold</span></button>
+                <button class="format-button" id="italic-button"><span class="material-icons">format_italic</span></button>
+                <button class="format-button" id="heading-button"><span class="material-icons">title</span></button>
+                <button class="format-button" id="image-button"><span class="material-icons">image</span></button>
+                <button class="format-button" id="link-button"><span class="material-icons">insert_link</span></button>
+                <button class="format-button" id="ul-button"><span class="material-icons">format_list_bulleted</span></button>
+                <button class="format-button" id="ol-button"><span class="material-icons">format_list_numbered</span></button>
+                <button class="format-button" id="align-left-button"><span class="material-icons">format_align_left</span></button>
+                <button class="format-button" id="align-center-button"><span class="material-icons">format_align_center</span></button>
+                <button class="format-button" id="align-right-button"><span class="material-icons">format_align_right</span></button>
+                <button class="format-button" id="strikethrough-button"><span class="material-icons">strikethrough_s</span></button>
+                <button class="format-button" id="quote-button"><span class="material-icons">format_quote</span></button>
+                <button class="format-button" id="inline-code-button"><span class="material-icons">code</span></button>
+                <button class="format-button" id="code-block-button"><span class="material-icons">code_off</span></button>
+            </div>
+            <textarea id="markdown-input" placeholder="Write your markdown here..."></textarea>
+        </main>
+        <footer>
+            <button id="copy-button">
+                <span class="material-icons">content_copy</span> Copy
+            </button>
+            <button id="download-button">
+                <span class="material-icons">file_download</span> Download
+            </button>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
