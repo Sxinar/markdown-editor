@@ -4,50 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Markdown Editor</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Markdown Editor</h1>
-            <div class="language-switcher">
-                <span class="material-icons" id="language-icon">language</span>
-            </div>
-            <div class="theme-switcher">
-                <span class="material-icons" id="theme-icon">brightness_6</span>
-            </div>
-        </header>
-        <main>
-            <div class="toolbar">
-                <button class="format-button" id="bold-button"><span class="material-icons">format_bold</span></button>
-                <button class="format-button" id="italic-button"><span class="material-icons">format_italic</span></button>
-                <button class="format-button" id="heading-button"><span class="material-icons">title</span></button>
-                <button class="format-button" id="image-button"><span class="material-icons">image</span></button>
-                <button class="format-button" id="link-button"><span class="material-icons">insert_link</span></button>
-                <button class="format-button" id="ul-button"><span class="material-icons">format_list_bulleted</span></button>
-                <button class="format-button" id="ol-button"><span class="material-icons">format_list_numbered</span></button>
-                <button class="format-button" id="align-left-button"><span class="material-icons">format_align_left</span></button>
-                <button class="format-button" id="align-center-button"><span class="material-icons">format_align_center</span></button>
-                <button class="format-button" id="align-right-button"><span class="material-icons">format_align_right</span></button>
-                <button class="format-button" id="strikethrough-button"><span class="material-icons">strikethrough_s</span></button>
-                <button class="format-button" id="quote-button"><span class="material-icons">format_quote</span></button>
-                <button class="format-button" id="inline-code-button"><span class="material-icons">code</span></button>
-                <button class="format-button" id="code-block-button"><span class="material-icons">code_off</span></button>
-            </div>
-            <textarea id="markdown-input" placeholder="Write your markdown here..."></textarea>
-        </main>
-        <footer>
-            <button id="copy-button">
-                <span class="material-icons">content_copy</span> Copy
-            </button>
-            <button id="download-button">
-                <span class="material-icons">file_download</span> Download
-            </button>
-        </footer>
+    <div class="toolbar">
+        <button onclick="formatText('bold')"><span class="material-icons">format_bold</span></button>
+        <button onclick="formatText('italic')"><span class="material-icons">format_italic</span></button>
+        <button onclick="formatText('heading')"><span class="material-icons">title</span></button>
+        <button onclick="insertImage()"><span class="material-icons">image</span></button>
+        <button onclick="insertLink()"><span class="material-icons">link</span></button>
+        <button onclick="formatText('unordered-list')"><span class="material-icons">format_list_bulleted</span></button>
+        <button onclick="formatText('ordered-list')"><span class="material-icons">format_list_numbered</span></button>
+        <button onclick="alignText('left')"><span class="material-icons">format_align_left</span></button>
+        <button onclick="alignText('center')"><span class="material-icons">format_align_center</span></button>
+        <button onclick="alignText('right')"><span class="material-icons">format_align_right</span></button>
+        <button onclick="formatText('strikethrough')"><span class="material-icons">strikethrough_s</span></button>
+        <button onclick="formatText('blockquote')"><span class="material-icons">format_quote</span></button>
+        <button onclick="formatText('inline-code')"><span class="material-icons">code</span></button>
+        <button onclick="formatText('code-block')"><span class="material-icons">developer_mode</span></button>
+        <button onclick="toggleTheme()"><span class="material-icons">brightness_6</span></button>
+        <button onclick="toggleLanguage()"><span class="material-icons">translate</span></button>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <div class="editor-container">
+        <textarea id="markdown-input" oninput="updatePreview()"></textarea>
+        <div id="preview" class="preview"></div>
+    </div>
+    <button onclick="copyMarkdown()"><span class="material-icons">content_copy</span></button>
+    <button onclick="downloadMarkdown()"><span class="material-icons">file_download</span></button>
     <script src="script.js"></script>
 </body>
 </html>

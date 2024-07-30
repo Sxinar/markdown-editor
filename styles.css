@@ -1,103 +1,114 @@
-:root {
-    --primary-color: #6200ea;
-    --background-light: #ffffff;
-    --background-dark: #121212;
-    --text-light: #000000;
-    --text-dark: #ffffff;
-    --border-radius: 12px;
-}
+@import url('https://fonts.googleapis.com/css2?family=Material+Icons&display=swap');
 
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--background-light);
-    color: var(--text-light);
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.container {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    padding: 20px;
-    background: var(--background-light);
-    border-radius: var(--border-radius);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
+    background-color: #f5f5f5;
+    transition: background-color 0.3s;
 }
 
-.language-switcher, .theme-switcher {
-    cursor: pointer;
+.editor-container {
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 80%;
+    max-width: 1200px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
 }
 
 .toolbar {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 10px;
-}
-
-.format-button {
-    background: var(--primary-color);
-    color: white;
-    border: none;
+    background-color: #6200ea;
     padding: 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-}
-
-textarea {
     width: 100%;
-    height: 300px;
-    padding: 10px;
-    border-radius: var(--border-radius);
-    border: 1px solid #ccc;
-    resize: none;
-    background-color: var(--background-light);
-    color: var(--text-light);
+    box-sizing: border-box;
 }
 
-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+.toolbar button {
+    background: none;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#markdown-input {
+    width: 50%;
+    height: 600px;
+    border: none;
+    padding: 20px;
+    font-size: 16px;
+    outline: none;
+    resize: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.preview {
+    width: 50%;
+    height: 600px;
+    border-left: 1px solid #ddd;
+    padding: 20px;
+    overflow-y: auto;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 button {
-    background: var(--primary-color);
-    color: white;
-    border: none;
+    margin: 10px;
     padding: 10px 20px;
-    border-radius: var(--border-radius);
+    background-color: #6200ea;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
+    transition: background-color 0.3s;
 }
 
-button .material-icons {
-    margin-right: 5px;
+button:hover {
+    background-color: #3700b3;
 }
 
-.dark-mode {
-    background-color: var(--background-dark);
-    color: var(--text-dark);
+[data-theme="dark"] {
+    background-color: #121212;
+    color: #fff;
 }
 
-.dark-mode .container {
-    background: var(--background-dark);
+[data-theme="dark"] .editor-container {
+    background-color: #1e1e1e;
 }
 
-.dark-mode textarea {
-    background: #333;
+[data-theme="dark"] .toolbar {
+    background-color: #bb86fc;
+}
+
+[data-theme="dark"] .toolbar button {
+    color: #000;
+}
+
+[data-theme="dark"] #markdown-input {
+    background-color: #121212;
+    color: #fff;
+}
+
+[data-theme="dark"] .preview {
+    background-color: #1e1e1e;
+    color: #fff;
+}
+
+[data-theme="dark"] button {
+    background-color: #bb86fc;
+    color: #000;
+}
+
+[data-theme="dark"] button:hover {
+    background-color: #6200ea;
     color: #fff;
 }
