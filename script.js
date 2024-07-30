@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     document.body.setAttribute('data-theme', 'light');
     document.body.setAttribute('data-language', 'en');
+    createColorPalette();
 });
 
 function updatePreview() {
@@ -132,20 +133,13 @@ function toggleLanguage() {
 
 function updateToolbarText(language) {
     const buttons = document.querySelectorAll('.toolbar button');
-    const icons = [
-        'format_bold', 'format_italic', 'title', 'image', 'link', 
-        'format_list_bulleted', 'format_list_numbered', 
-        'format_align_left', 'format_align_center', 'format_align_right', 
-        'strikethrough_s', 'format_quote', 'code', 'developer_mode', 
-        'brightness_6', 'translate'
-    ];
     const tooltips = {
-        en: ['Bold', 'Italic', 'Heading', 'Image', 'Link', 'Unordered List', 'Ordered List', 
-             'Align Left', 'Align Center', 'Align Right', 'Strikethrough', 'Quote', 'Inline Code', 
-             'Code Block', 'Toggle Theme', 'Toggle Language'],
-        tr: ['Kalın', 'İtalik', 'Başlık', 'Görsel', 'Bağlantı', 'Sırasız Liste', 'Sıralı Liste', 
-             'Sola Hizala', 'Ortala', 'Sağa Hizala', 'Üstü Çizili', 'Alıntı', 'Kod', 'Kod Bloğu', 
-             'Tema Değiştir', 'Dil Değiştir']
+        en: ['Bold', 'Italic', 'Heading', 'Image', 'Link', 'Unordered List', 'Ordered List',
+            'Align Left', 'Align Center', 'Align Right', 'Strikethrough', 'Quote', 'Inline Code',
+            'Code Block', 'Toggle Theme', 'Toggle Language'],
+        tr: ['Kalın', 'İtalik', 'Başlık', 'Görsel', 'Bağlantı', 'Sırasız Liste', 'Sıralı Liste',
+            'Sola Hizala', 'Ortala', 'Sağa Hizala', 'Üstü Çizili', 'Alıntı', 'Kod', 'Kod Bloğu',
+            'Tema Değiştir', 'Dil Değiştir']
     };
 
     buttons.forEach((button, index) => {
